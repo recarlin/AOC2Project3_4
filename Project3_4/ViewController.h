@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddEventView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <EventDisplayerDelegate>
+{
+    IBOutlet UITextView *eventsDisplay;
+}
+
+-(IBAction)clickNewEvent:(id)sender;
 
 @end

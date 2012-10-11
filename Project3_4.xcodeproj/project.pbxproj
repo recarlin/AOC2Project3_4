@@ -16,8 +16,8 @@
 		FAE4DEC116263B4000B03AD0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE4DEC016263B4000B03AD0 /* Default.png */; };
 		FAE4DEC316263B4000B03AD0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE4DEC216263B4000B03AD0 /* Default@2x.png */; };
 		FAE4DEC516263B4000B03AD0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE4DEC416263B4000B03AD0 /* Default-568h@2x.png */; };
-		FAE4DEC816263B4000B03AD0 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4DEC716263B4000B03AD0 /* MainView.m */; };
-		FAE4DECB16263B4000B03AD0 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE4DEC916263B4000B03AD0 /* MainView.xib */; };
+		FAE4DEC816263B4000B03AD0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4DEC716263B4000B03AD0 /* ViewController.m */; };
+		FAE4DECB16263B4000B03AD0 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE4DEC916263B4000B03AD0 /* ViewController.xib */; };
 		FAE4DED816263F2F00B03AD0 /* AddEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4DED616263F2F00B03AD0 /* AddEventView.m */; };
 		FAE4DED916263F2F00B03AD0 /* AddEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE4DED716263F2F00B03AD0 /* AddEventView.xib */; };
 /* End PBXBuildFile section */
@@ -36,9 +36,9 @@
 		FAE4DEC016263B4000B03AD0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FAE4DEC216263B4000B03AD0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FAE4DEC416263B4000B03AD0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FAE4DEC616263B4000B03AD0 /* MainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
-		FAE4DEC716263B4000B03AD0 /* MainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
-		FAE4DECA16263B4000B03AD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainView.xib; sourceTree = "<group>"; };
+		FAE4DEC616263B4000B03AD0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FAE4DEC716263B4000B03AD0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FAE4DECA16263B4000B03AD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		FAE4DED516263F2F00B03AD0 /* AddEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventView.h; sourceTree = "<group>"; };
 		FAE4DED616263F2F00B03AD0 /* AddEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventView.m; sourceTree = "<group>"; };
 		FAE4DED716263F2F00B03AD0 /* AddEventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventView.xib; sourceTree = "<group>"; };
@@ -90,9 +90,9 @@
 			children = (
 				FAE4DEBD16263B4000B03AD0 /* AppDelegate.h */,
 				FAE4DEBE16263B4000B03AD0 /* AppDelegate.m */,
-				FAE4DEC616263B4000B03AD0 /* MainView.h */,
-				FAE4DEC716263B4000B03AD0 /* MainView.m */,
-				FAE4DEC916263B4000B03AD0 /* MainView.xib */,
+				FAE4DEC616263B4000B03AD0 /* ViewController.h */,
+				FAE4DEC716263B4000B03AD0 /* ViewController.m */,
+				FAE4DEC916263B4000B03AD0 /* ViewController.xib */,
 				FAE4DEB516263B4000B03AD0 /* Supporting Files */,
 				FAE4DED516263F2F00B03AD0 /* AddEventView.h */,
 				FAE4DED616263F2F00B03AD0 /* AddEventView.m */,
@@ -170,7 +170,7 @@
 				FAE4DEC116263B4000B03AD0 /* Default.png in Resources */,
 				FAE4DEC316263B4000B03AD0 /* Default@2x.png in Resources */,
 				FAE4DEC516263B4000B03AD0 /* Default-568h@2x.png in Resources */,
-				FAE4DECB16263B4000B03AD0 /* MainView.xib in Resources */,
+				FAE4DECB16263B4000B03AD0 /* ViewController.xib in Resources */,
 				FAE4DED916263F2F00B03AD0 /* AddEventView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,7 +184,7 @@
 			files = (
 				FAE4DEBB16263B4000B03AD0 /* main.m in Sources */,
 				FAE4DEBF16263B4000B03AD0 /* AppDelegate.m in Sources */,
-				FAE4DEC816263B4000B03AD0 /* MainView.m in Sources */,
+				FAE4DEC816263B4000B03AD0 /* ViewController.m in Sources */,
 				FAE4DED816263F2F00B03AD0 /* AddEventView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,12 +200,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		FAE4DEC916263B4000B03AD0 /* MainView.xib */ = {
+		FAE4DEC916263B4000B03AD0 /* ViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FAE4DECA16263B4000B03AD0 /* en */,
 			);
-			name = MainView.xib;
+			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -302,6 +302,7 @@
 				FAE4DED016263B4000B03AD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

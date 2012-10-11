@@ -11,8 +11,8 @@
 @interface AddEventView ()
 
 @end
-
 @implementation AddEventView
+@synthesize displayerDelegate, eventDetails, eventDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad
 {
+    [datePicker setMinimumDate: [NSDate date]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -35,4 +36,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)onClick:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    
+    switch (button.tag) {
+        case 0:
+        {
+            [self dismissViewControllerAnimated:TRUE completion:nil];
+            NSString *completeEventInfo = [NSString stringWithFormat:@"%@\n%@", eventDetails, eventDate];
+            [displayerDelegate displayEvent:completeEventInfo];
+        }
+            break;
+        case 1:
+        {
+            [eventTitleText resignFirstResponder];
+            eventDetails = eventTitleText.text;
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        default:
+        {
+            
+        }
+            break;
+    }
+}
+
+-(IBAction)dateChange:(id)sender
+{
+    eventDate = datePicker.date;
+}
 @end

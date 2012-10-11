@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Russell Carlin. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainView.h"
 
 @interface ViewController ()
 

@@ -43,8 +43,10 @@
 -(IBAction)onClick:(id)sender
 {
     UIButton *button = (UIButton*)sender;
-    
     switch (button.tag) {
+            
+//If the Save button is pressed, it checks to see if there is a title for the event. If there isn't, you get an error alert saying you need a title, and if there is, it will go back to the main view and add the event.
+
         case 0:
         {
             if ([eventTitleText.text isEqualToString:@""]) {
@@ -57,15 +59,21 @@
             }
         }
             break;
+            
+//If you click the Keyboard button, it will remove the keyboard and save the text to a variable for later.
+            
         case 1:
         {
             [eventTitleText resignFirstResponder];
             eventDetails = eventTitleText.text;
         }
             break;
+            
+//Just an Info button that opens an alert for my name and course.
+            
         case 2:
         {
-            
+            UIAlertView *noTitleError = [[UIAlertView alloc]initWithTitle:@"Information" message:@"Created by: Russell Carlin\nCourse: AOC2 - 1210" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         }
             break;
         default:
@@ -75,6 +83,8 @@
             break;
     }
 }
+
+//This watches for changes in the UIDatePicker, and saves it to a variable for later.
 
 -(IBAction)dateChange:(id)sender
 {

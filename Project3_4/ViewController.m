@@ -36,13 +36,10 @@
 
 -(void)displayEvent:(NSString*)info
 {
-    NSLog(@"%@", eventsDisplay.text);
-    NSString *currentDisplay = eventsDisplay.text;
-    if(currentDisplay == @"Events will be displayed here."){
+    if([eventsDisplay.text isEqualToString:@"Events will be displayed here."]){
         eventsDisplay.text = info;
     } else if (eventsDisplay.text != @""){
         NSString *addLines = [NSString stringWithFormat:@"\n\n%@", info];
-        NSLog(@"%@", addLines);
         eventsDisplay.text = [eventsDisplay.text stringByAppendingString:addLines];
     }
 }

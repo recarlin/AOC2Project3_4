@@ -25,7 +25,11 @@
 
 - (void)viewDidLoad
 {
+    formattedDate = [[NSDateFormatter alloc]init];
+    [formattedDate setDateStyle:NSDateFormatterLongStyle];
+    [formattedDate setTimeStyle:NSDateFormatterShortStyle];
     [datePicker setMinimumDate: [NSDate date]];
+    eventDate = [NSDate date];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,9 +47,14 @@
     switch (button.tag) {
         case 0:
         {
-            [self dismissViewControllerAnimated:TRUE completion:nil];
-            NSString *completeEventInfo = [NSString stringWithFormat:@"%@\n%@", eventDetails, eventDate];
-            [displayerDelegate displayEvent:completeEventInfo];
+            if ([eventTitleText.text isEqualToString:@""]) {
+                UIAlertView *noTitleError = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"You need a title for your event." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [noTitleError show];
+            } else {
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+                NSString *completeEventInfo = [NSString stringWithFormat:@"%@\n%@", eventDetails, [formattedDate stringFromDate:eventDate]];
+                [displayerDelegate displayEvent:completeEventInfo];
+            }
         }
             break;
         case 1:

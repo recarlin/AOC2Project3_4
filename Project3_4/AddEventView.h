@@ -20,6 +20,7 @@
     id<EventDisplayerDelegate> displayerDelegate;
     IBOutlet UITextView *eventTitleText;
     IBOutlet UIDatePicker *datePicker;
+    NSDateFormatter *formattedDate;
 }
 
 @property (strong) id<EventDisplayerDelegate> displayerDelegate;

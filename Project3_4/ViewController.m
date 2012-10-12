@@ -32,9 +32,27 @@
 
 -(IBAction)clickNewEvent:(UIButton*)button
 {
-    AddEventView *addEvent = [[AddEventView alloc]initWithNibName:@"AddEventView" bundle:nil];
-    addEvent.displayerDelegate = self;
-    [self presentViewController:addEvent animated:TRUE completion:nil];
+    switch (button.tag) {
+        case 0:
+        {
+            AddEventView *addEvent = [[AddEventView alloc]initWithNibName:@"AddEventView" bundle:nil];
+            addEvent.displayerDelegate = self;
+            [self presentViewController:addEvent animated:TRUE completion:nil];
+        }
+            break;
+        case 1:
+        {
+            UIAlertView *showAppInfo = [[UIAlertView alloc]initWithTitle:@"Information" message:@"Created by: Russell Carlin\nCourse: AOC2 - 1210" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [showAppInfo show];
+        }
+            
+        default:
+        {
+            
+        }
+            break;
+    }
+    
 }
 
 //Checks if the eventsDisplay UITextView has the default text on it still. If it does, it removes it and places the new event info there. If it doesn't have the default text (meaning there are events in there), then it appends two new lines and the new event info.

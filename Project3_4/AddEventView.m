@@ -25,10 +25,15 @@
 
 - (void)viewDidLoad
 {
+    
+//Date formatter.
+    
     formattedDate = [[NSDateFormatter alloc]init];
     [formattedDate setDateStyle:NSDateFormatterLongStyle];
     [formattedDate setTimeStyle:NSDateFormatterShortStyle];
     [datePicker setMinimumDate: [NSDate date]];
+    
+//Swipe recongnizer.
     
     leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -66,14 +71,11 @@
         }
             break;
         default:
-        {
-            
-        }
             break;
     }
 }
 
-//If the Save button is pressed, it checks to see if there is a title for the event. If there isn't, you get an error alert saying you need a title, and if there is, it will go back to the main view and add the event.
+//I fixed my save so there are no variables changed all the time. Now, nothing is saved or logged until you give the swipe gesture. Then, it takes the date, and formats it, from the picker and grabs the eventTitleText text. Lastly, it builds the new event text and sends it to the main view.
 
 -(void)swipeLeft:(UISwipeGestureRecognizer*)recognizer
 {

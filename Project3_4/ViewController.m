@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad
 {
+   
+//Loads any saved events; if there are none, it displays the default text.
+    
     NSUserDefaults *savedEvents = [NSUserDefaults standardUserDefaults];
     if ([savedEvents objectForKey:@"Events"] != nil){
         eventsDisplay.text = [savedEvents objectForKey:@"Events"];
@@ -23,6 +26,8 @@
         eventsDisplay.text = @"Events will be displayed here.";
     }
     
+//Swipe recognizer.
+
     rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
     rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
     [rightSwipeLabel addGestureRecognizer:rightSwipe];
@@ -42,6 +47,9 @@
     switch (button.tag) {
         case 0:
         {
+    
+//Saves the text in eventsDisplay to NSUserDefaults and displays an alert to show that something happened.
+            
             NSUserDefaults *savedEvents = [NSUserDefaults standardUserDefaults];
             [savedEvents setObject:eventsDisplay.text forKey:@"Events"];
             [savedEvents synchronize];
@@ -61,19 +69,21 @@
             
         case 2:
         {
+            
+//Displays a confirmation asking if you want to clear all events or not.
+            
             UIAlertView *clearConfirm = [[UIAlertView alloc]initWithTitle:@"Confirm" message:@"Do you want to clear all saved events?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles: @"No", nil];
             [clearConfirm show];
         }
             break;
             
         default:
-        {
-            
-        }
             break;
     }
     
 }
+
+//Setting the alert view delegate to self runs this method, checknig if you pressed Yes or No. If you hit Yes, then it clears the saved events and sets the eventsDisplay to default.
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -88,9 +98,6 @@
         }
             break;
         case 1:
-        {
-            
-        }
             break;
             
         default:
@@ -110,9 +117,10 @@
     }
 }
 
+//Opens the AddEventView and sets the delegate so the main view can pick up the information.
+
 -(void)swipeRight:(UISwipeGestureRecognizer*)recognizer
 {
-//Opens the AddEventView and sets the delegate so the main view can pick up the information.
     AddEventView *addEvent = [[AddEventView alloc]initWithNibName:@"AddEventView" bundle:nil];
     addEvent.displayerDelegate = self;
     [self presentViewController:addEvent animated:TRUE completion:nil];

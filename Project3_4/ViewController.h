@@ -12,8 +12,10 @@
 @interface ViewController : UIViewController <EventDisplayerDelegate>
 {
     IBOutlet UITextView *eventsDisplay;
+    IBOutlet UILabel *rightSwipeLabel;
+    UISwipeGestureRecognizer *rightSwipe;
 }
 
--(IBAction)clickNewEvent:(id)sender;
+-(IBAction)clickSave:(id)sender;
 
 @end

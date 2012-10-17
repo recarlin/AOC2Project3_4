@@ -21,14 +21,13 @@
     IBOutlet UITextView *eventTitleText;
     IBOutlet UIDatePicker *datePicker;
     NSDateFormatter *formattedDate;
+    IBOutlet UILabel *leftSwipeLabel;
+    UISwipeGestureRecognizer *leftSwipe;
 }
 
 @property (strong) id<EventDisplayerDelegate> displayerDelegate;
-@property NSString *eventDetails;
-@property NSDate *eventDate;
 
 -(IBAction)onClick:(id)sender;
--(IBAction)dateChange:(id)sender;
 
 @end
 

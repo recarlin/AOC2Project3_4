@@ -16,10 +16,14 @@
 
 - (void)viewDidLoad
 {
-    
-//Sets the default text on the events list.
+    //Sets the default text on the events list.
     
     eventsDisplay.text = @"Events will be displayed here.";
+    
+    rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [rightSwipeLabel addGestureRecognizer:rightSwipe];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -30,18 +34,19 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)clickNewEvent:(UIButton*)button
+-(IBAction)clickSave:(UIButton*)button
 {
     switch (button.tag) {
         case 0:
         {
-            AddEventView *addEvent = [[AddEventView alloc]initWithNibName:@"AddEventView" bundle:nil];
-            addEvent.displayerDelegate = self;
-            [self presentViewController:addEvent animated:TRUE completion:nil];
+
         }
             break;
         case 1:
         {
+            
+//Just an Info button that opens an alert for my name and course.
+            
             UIAlertView *showAppInfo = [[UIAlertView alloc]initWithTitle:@"Information" message:@"Created by: Russell Carlin\nCourse: AOC2 - 1210" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [showAppInfo show];
         }
@@ -65,5 +70,13 @@
         NSString *addLines = [NSString stringWithFormat:@"\n\n%@", info];
         eventsDisplay.text = [eventsDisplay.text stringByAppendingString:addLines];
     }
+}
+
+-(void)swipeRight:(UISwipeGestureRecognizer*)recognizer
+{
+//Opens the AddEventView and sets the delegate so the main view can pick up the information.
+    AddEventView *addEvent = [[AddEventView alloc]initWithNibName:@"AddEventView" bundle:nil];
+    addEvent.displayerDelegate = self;
+    [self presentViewController:addEvent animated:TRUE completion:nil];
 }
 @end

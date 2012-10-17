@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AddEventView.h"
 
-@interface ViewController : UIViewController <EventDisplayerDelegate>
+@interface ViewController : UIViewController <EventDisplayerDelegate, UIAlertViewDelegate>
 {
     IBOutlet UITextView *eventsDisplay;
     IBOutlet UILabel *rightSwipeLabel;
     UISwipeGestureRecognizer *rightSwipe;
 }
 
--(IBAction)clickSave:(id)sender;
+-(IBAction)clickStuff:(id)sender;
 
 @end

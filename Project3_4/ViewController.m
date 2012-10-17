@@ -23,12 +23,6 @@
         eventsDisplay.text = @"Events will be displayed here.";
     }
     
-    
-    
-    //Sets the default text on the events list.
-    
-   
-    
     rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
     rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
     [rightSwipeLabel addGestureRecognizer:rightSwipe];
@@ -43,7 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)clickSave:(UIButton*)button
+-(IBAction)clickStuff:(UIButton*)button
 {
     switch (button.tag) {
         case 0:
@@ -52,7 +46,7 @@
             [savedEvents setObject:eventsDisplay.text forKey:@"Events"];
             [savedEvents synchronize];
             
-            UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Success!" message:@"Your events were saved!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Success" message:@"Your events were saved!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [savedAlert show];
         }
             break;
@@ -65,6 +59,13 @@
             [showAppInfo show];
         }
             
+        case 2:
+        {
+            UIAlertView *clearConfirm = [[UIAlertView alloc]initWithTitle:@"Confirm" message:@"Do you want to clear all saved events?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles: @"No", nil];
+            [clearConfirm show];
+        }
+            break;
+            
         default:
         {
             
@@ -72,6 +73,29 @@
             break;
     }
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+        {
+            NSUserDefaults *savedEvents = [NSUserDefaults standardUserDefaults];
+            [savedEvents removeObjectForKey:@"Events"];
+            [savedEvents synchronize];
+            eventsDisplay.text = @"Events will be displayed here.";
+            
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 //Checks if the eventsDisplay UITextView has the default text on it still. If it does, it removes it and places the new event info there. If it doesn't have the default text (meaning there are events in there), then it appends two new lines and the new event info.

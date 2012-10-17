@@ -16,9 +16,18 @@
 
 - (void)viewDidLoad
 {
+    NSUserDefaults *savedEvents = [NSUserDefaults standardUserDefaults];
+    if ([savedEvents objectForKey:@"Events"] != nil){
+        eventsDisplay.text = [savedEvents objectForKey:@"Events"];
+    } else {
+        eventsDisplay.text = @"Events will be displayed here.";
+    }
+    
+    
+    
     //Sets the default text on the events list.
     
-    eventsDisplay.text = @"Events will be displayed here.";
+   
     
     rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
     rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
@@ -39,7 +48,12 @@
     switch (button.tag) {
         case 0:
         {
-
+            NSUserDefaults *savedEvents = [NSUserDefaults standardUserDefaults];
+            [savedEvents setObject:eventsDisplay.text forKey:@"Events"];
+            [savedEvents synchronize];
+            
+            UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Success!" message:@"Your events were saved!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [savedAlert show];
         }
             break;
         case 1:

@@ -23,6 +23,8 @@
     NSDateFormatter *formattedDate;
     IBOutlet UILabel *leftSwipeLabel;
     UISwipeGestureRecognizer *leftSwipe;
+    IBOutlet UIView *infoView;
+    BOOL open;
 }
 
 @property (strong) id<EventDisplayerDelegate> displayerDelegate;

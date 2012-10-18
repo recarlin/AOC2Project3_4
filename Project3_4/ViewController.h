@@ -14,6 +14,8 @@
     IBOutlet UITextView *eventsDisplay;
     IBOutlet UILabel *rightSwipeLabel;
     UISwipeGestureRecognizer *rightSwipe;
+    IBOutlet UIView *infoView;
+    BOOL open;
 }
 
 -(IBAction)clickStuff:(id)sender;

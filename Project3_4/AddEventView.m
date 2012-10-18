@@ -53,6 +53,12 @@
 {
     UIButton *button = (UIButton*)sender;
     switch (button.tag) {
+         
+        case 0:
+        {
+            [self dismissViewControllerAnimated:TRUE completion:nil];
+        }
+            break;
             
 //If you click the Keyboard button, it will remove the keyboard and save the text to a variable for later.
             
@@ -66,8 +72,18 @@
             
         case 2:
         {
-            UIAlertView *showAppInfo = [[UIAlertView alloc]initWithTitle:@"Information" message:@"Created by: Russell Carlin\nCourse: AOC2 - 1210" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [showAppInfo show];
+                
+//Another view for my name and course. When the button is clicked, it checks if the view is already open or not. It then animates the view open or closed accordingly.
+            
+            [UIView beginAnimations:nil context:nil];
+            if(open == FALSE){
+                infoView.frame = CGRectMake(0.0f, infoView.frame.origin.y, infoView.frame.size.width, infoView.frame.size.height);
+                open = TRUE;
+            } else {
+                infoView.frame = CGRectMake(320.0f, infoView.frame.origin.y, infoView.frame.size.width, infoView.frame.size.height);
+                open = FALSE;
+            }
+            [UIView commitAnimations];
         }
             break;
         default:

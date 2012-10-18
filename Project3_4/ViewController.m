@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad
 {
-   
+    open = FALSE;
 //Loads any saved events; if there are none, it displays the default text.
     
     NSUserDefaults *savedEvents = [NSUserDefaults standardUserDefaults];
@@ -61,11 +61,19 @@
         case 1:
         {
             
-//Just an Info button that opens an alert for my name and course.
-            
-            UIAlertView *showAppInfo = [[UIAlertView alloc]initWithTitle:@"Information" message:@"Created by: Russell Carlin\nCourse: AOC2 - 1210" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [showAppInfo show];
+//Another view for my name and course. When the button is clicked, it checks if the view is already open or not. It then animates the view open or closed accordingly.
+        
+            [UIView beginAnimations:nil context:nil];
+            if(open == FALSE){
+                infoView.frame = CGRectMake(0.0f, infoView.frame.origin.y, infoView.frame.size.width, infoView.frame.size.height);
+                open = TRUE;
+            } else {
+                infoView.frame = CGRectMake(320.0f, infoView.frame.origin.y, infoView.frame.size.width, infoView.frame.size.height);
+                open = FALSE;
+            }
+            [UIView commitAnimations];
         }
+            break;
             
         case 2:
         {
